@@ -1,1421 +1,226 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Urban Kicks | Catálogo Interactivo</title>
-<style>
-body {
-  font-family: system-ui, sans-serif;
-  margin: 2rem;
-  line-height: 1.5;
-}
-
-h1 {
-  color: #219653;
-}
-
-button {
-  padding: 8px 16px;
-  border: 1px solid #219653;
-  background: #fff;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-</style>
-</head>
-<body>
-<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Urban Kicks | Catálogo Interactivo</title>
-
+<title>Catálogo interactivo de cuentas | Urban Kicks</title>
 <style>
-
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
-
-body{
-    font-family:Arial, Helvetica, sans-serif;
-    background:#f5f5f5;
-    color:#222;
-}
-
-/* ENCABEZADO */
-
-header{
-    background:#151515;
-    color:white;
-    padding:20px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
-}
-
-.logo{
-    font-size:25px;
-    font-weight:bold;
-}
-
-.logo span{
-    color:#c8f169;
-}
-
-nav{
-    display:flex;
-    gap:8px;
-    flex-wrap:wrap;
-}
-
-nav button{
-    border:none;
-    background:#292929;
-    color:white;
-    padding:10px 14px;
-    border-radius:8px;
-    cursor:pointer;
-}
-
-nav button:hover,
-nav button.active{
-    background:#c8f169;
-    color:#111;
-}
-
-/* CONTENIDO */
-
-main{
-    max-width:1100px;
-    margin:auto;
-    padding:30px 20px;
-}
-
-.page{
-    display:none;
-}
-
-.page.active{
-    display:block;
-}
-
-/* PORTADA */
-
-.hero{
-    background:linear-gradient(135deg,#242424,#684fa4);
-    color:white;
-    border-radius:20px;
-    padding:60px 40px;
-    margin-bottom:25px;
-}
-
-.hero h1{
-    font-size:55px;
-    line-height:1;
-    margin:15px 0;
-}
-
-.hero p{
-    margin:10px 0;
-    max-width:700px;
-}
-
-.etiqueta{
-    color:#c8f169;
-    font-weight:bold;
-    text-transform:uppercase;
-    letter-spacing:3px;
-}
-
-.boton{
-    background:#c8f169;
-    color:#111;
-    border:none;
-    padding:13px 20px;
-    border-radius:9px;
-    font-weight:bold;
-    cursor:pointer;
-    margin-top:15px;
-}
-
-.boton:hover{
-    transform:scale(1.03);
-}
-
-/* TARJETAS */
-
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:18px;
-    margin-top:20px;
-}
-
-.card{
-    background:white;
-    padding:22px;
-    border-radius:15px;
-    border:1px solid #ddd;
-    box-shadow:0 4px 15px rgba(0,0,0,.06);
-}
-
-.card h3{
-    margin-bottom:10px;
-}
-
-.card p{
-    color:#666;
-}
-
-/* ECUACIÓN */
-
-.ecuacion{
-    background:#eeeafa;
-    padding:20px;
-    border-radius:12px;
-    margin:25px 0;
-    text-align:center;
-    font-size:20px;
-    font-weight:bold;
-}
-
-.ecuacion span{
-    background:white;
-    padding:10px 15px;
-    border-radius:8px;
-    margin:5px;
-    display:inline-block;
-}
-
-/* FILTROS */
-
-.toolbar{
-    display:flex;
-    gap:10px;
-    margin:20px 0;
-    flex-wrap:wrap;
-}
-
-input,
-select,
-textarea{
-    padding:11px;
-    border:1px solid #ccc;
-    border-radius:8px;
-    font-family:inherit;
-}
-
-input{
-    flex:1;
-    min-width:220px;
-}
-
-/* CUENTAS */
-
-.cuentas{
-    display:grid;
-    gap:10px;
-}
-
-.cuenta{
-    background:white;
-    border:1px solid #ddd;
-    border-radius:10px;
-    overflow:hidden;
-}
-
-.cuenta summary{
-    padding:15px;
-    cursor:pointer;
-    display:flex;
-    gap:15px;
-    align-items:center;
-    list-style:none;
-}
-
-.cuenta summary:hover{
-    background:#fafafa;
-}
-
-.codigo{
-    color:#674fa4;
-    font-family:monospace;
-    font-weight:bold;
-}
-
-.nombre{
-    font-weight:bold;
-    flex:1;
-}
-
-.etiquetaCuenta{
-    background:#eeeafa;
-    color:#503c8a;
-    padding:4px 10px;
-    border-radius:20px;
-    font-size:12px;
-}
-
-.detalle{
-    border-top:1px solid #ddd;
-    padding:15px;
-}
-
-.detalle p{
-    margin:8px 0;
-}
-
-/* TABLA */
-
-.tabla-contenedor{
-    overflow:auto;
-    background:white;
-    border-radius:10px;
-}
-
-table{
-    border-collapse:collapse;
-    width:100%;
-    min-width:650px;
-}
-
-th,
-td{
-    padding:13px;
-    border-bottom:1px solid #ddd;
-    text-align:left;
-}
-
-th{
-    background:#eeeafa;
-    color:#48377a;
-}
-
-/* EJEMPLOS */
-
-.ejemplo{
-    border-left:5px solid #674fa4;
-}
-
-/* ACTIVIDAD */
-
-.pregunta{
-    background:white;
-    padding:18px;
-    border-radius:12px;
-    border:1px solid #ddd;
-    margin:15px 0;
-}
-
-.pregunta label{
-    display:block;
-    margin:10px 0;
-    cursor:pointer;
-}
-
-.correcto{
-    color:green;
-    font-weight:bold;
-}
-
-.incorrecto{
-    color:#b33;
-    font-weight:bold;
-}
-
-textarea{
-    width:100%;
-    min-height:120px;
-    resize:vertical;
-    margin-top:10px;
-}
-
-/* PIE */
-
-footer{
-    text-align:center;
-    color:#777;
-    padding:30px;
-    margin-top:30px;
-    border-top:1px solid #ddd;
-}
-
-/* CELULAR */
-
-@media(max-width:600px){
-
-    .hero h1{
-        font-size:40px;
-    }
-
-    nav{
-        width:100%;
-        margin-top:15px;
-    }
-
-    nav button{
-        flex:1;
-        font-size:12px;
-    }
-
-}
-
+:root{--dark:#171923;--purple:#6750a4;--lime:#c8f169;--bg:#f5f5f7;--white:#fff;--muted:#697080;--line:#e4e5eb}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--dark);font-family:Arial,Helvetica,sans-serif;line-height:1.55}
+header{background:var(--dark);color:white;padding:16px clamp(16px,5vw,60px);display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+.logo{font-weight:900;font-size:1.2rem;letter-spacing:.08em}.logo span{color:var(--lime)}
+nav{display:flex;gap:7px;flex-wrap:wrap}button{font:inherit;cursor:pointer;border:0;border-radius:9px;padding:10px 14px}nav button{background:#ffffff16;color:white}nav button:hover,nav button.active{background:var(--lime);color:var(--dark)}
+main{max-width:1120px;margin:auto;padding:26px 18px 60px}.page{display:none}.page.active{display:block}
+.hero{background:linear-gradient(120deg,#262a3b,#6750a4);color:white;border-radius:20px;padding:clamp(28px,6vw,64px);position:relative;overflow:hidden}.hero:after{content:"👟";font-size:clamp(90px,18vw,190px);position:absolute;right:7%;bottom:5%;opacity:.16;transform:rotate(-18deg)}.eyebrow{text-transform:uppercase;letter-spacing:.16em;font-size:.78rem;color:var(--lime);font-weight:bold}.hero h1{font-size:clamp(2.2rem,6vw,4.3rem);line-height:1.02;margin:14px 0}.hero p{max-width:650px;color:#ecebf4}.lime{background:var(--lime);color:var(--dark);font-weight:bold;margin-top:10px}.lime:hover{transform:translateY(-1px)}
+h2{color:var(--dark);margin:0 0 8px;font-size:1.8rem}.sub{color:var(--muted);margin-top:0}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;margin:20px 0}.card{background:white;border:1px solid var(--line);border-radius:15px;padding:19px;box-shadow:0 5px 16px #17192308}.card h3{margin:0 0 7px}.card p{color:var(--muted);margin:0}.category{width:100%;text-align:left;cursor:pointer;border-top:4px solid var(--purple)}.category:nth-child(2){border-top-color:#ca8b43}.category:nth-child(3){border-top-color:#5a9a79}.category strong{display:block;font-size:1.2rem;margin:8px 0}
+.equation{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;padding:18px;background:#eeebf7;border-radius:13px;margin:18px 0;color:var(--purple);font-weight:bold}.equation span{background:white;border-radius:9px;padding:9px 14px}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:17px 0}.toolbar input,.toolbar select,textarea{font:inherit;border:1px solid #cfd1db;border-radius:9px;padding:11px;background:white}.toolbar input{flex:1;min-width:200px}
+.list{display:grid;gap:10px}.account{background:white;border:1px solid var(--line);border-radius:12px;overflow:hidden}.account summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:14px}.account summary::-webkit-details-marker{display:none}.account summary:hover{background:#fafaff}.code{font-family:monospace;color:var(--purple);font-weight:bold}.accname{font-weight:bold;flex:1}.tag{font-size:.76rem;border-radius:20px;background:#eeebf7;color:#503c8a;padding:3px 9px}.details{border-top:1px solid var(--line);padding:10px 17px 15px}.details p{margin:8px 0}.details b{color:#34304a}
+.tablewrap{overflow:auto;background:white;border:1px solid var(--line);border-radius:12px}table{border-collapse:collapse;width:100%;min-width:620px}th,td{text-align:left;padding:12px;border-bottom:1px solid var(--line)}th{background:#eeebf7;color:#3e326b}tr:last-child td{border:0}
+.case{border-left:4px solid var(--purple)}.question{background:white;border:1px solid var(--line);border-radius:12px;padding:16px;margin:12px 0}.question label{display:block;margin:8px 0;cursor:pointer}.feedback{font-weight:bold}.reflection{width:100%;min-height:95px;resize:vertical}.small{font-size:.88rem;color:var(--muted)}footer{text-align:center;color:var(--muted);padding:22px;border-top:1px solid var(--line)}
+@media(max-width:600px){nav{width:100%}nav button{flex:1;padding:8px 5px;font-size:.8rem}.account summary{flex-wrap:wrap}.tag{margin-left:55px}}
 </style>
 </head>
-
-
 <body>
-
-<!-- ENCABEZADO -->
-
 <header>
-
-<div class="logo">
-URBAN<span>KICKS</span>
-</div>
-
+<div class="logo">URBAN<span>KICKS</span></div>
 <nav>
-
-<button class="active" data-page="inicio">
-Inicio
-</button>
-
-<button data-page="introduccion">
-Introducción
-</button>
-
-<button data-page="catalogo">
-Catálogo
-</button>
-
-<button data-page="resumen">
-Resumen
-</button>
-
-<button data-page="ejemplos">
-Ejemplos
-</button>
-
-<button data-page="actividad">
-Actividad
-</button>
-
+<button class="active" data-page="inicio">Inicio</button>
+<button data-page="intro">Introducción</button>
+<button data-page="catalogo">Cuentas</button>
+<button data-page="tabla">Resumen</button>
+<button data-page="casos">Ejemplos</button>
+<button data-page="quiz">Actividad</button>
 </nav>
-
 </header>
-
-
 <main>
-
-
-<!-- ================= PORTADA ================= -->
-
 <section id="inicio" class="page active">
-
 <div class="hero">
-
-<div class="etiqueta">
-Proyecto de Contabilidad I
+<div class="eyebrow">Proyecto de Contabilidad I</div>
+<h1>Catálogo<br>interactivo de cuentas</h1>
+<p>Negocio imaginario: <b>Urban Kicks</b>, tienda dedicada a la venta de tenis deportivos y casuales.</p>
+<p><b>Alumno:</b> Ashlei Yamileth Cruz Pascual<br>
+<b>Materia:</b> Contabilidad I<br>
+<b>Docente:</b> L.A.G.E. Alejandro Sandoval Rosales<br>
+<b>Universidad:</b> Universidad Politécnica del Valle de México</p>
+<button class="lime" type="button" data-page="intro">Explorar catálogo →</button>
 </div>
-
-<h1>
-Catálogo<br>
-Interactivo
-</h1>
-
-<p>
-<strong>Urban Kicks</strong> es una tienda dedicada a la venta
-de tenis deportivos y casuales.
-</p>
-
-<br>
-
-<p>
-<strong>Alumno:</strong>
-Cruz Pascual Ashlei Yamileth
-</p>
-
-<p>
-<strong>Materia:</strong>
-Contabilidad I
-</p>
-
-<p>
-<strong>Docente:</strong>
- Alejandro Sandoval Rosales
-</p>
-
-<p>
-<strong>Universidad:</strong>
-Universidad Politécnica del Valle de México
-</p>
-
-<button class="boton"
-onclick="mostrarPagina('introduccion')">
-
-Comenzar catálogo →
-
-</button>
-
-</div>
-
-
 <div class="cards">
-
-<div class="card">
-
-<h3>👟 Activo</h3>
-
-<p>
-Representa los recursos y derechos
-que posee Urban Kicks.
-</p>
-
+<div class="card"><h3>👟 Activo</h3><p>Recursos de Urban Kicks: dinero, inventario, equipo y derechos de cobro.</p></div>
+<div class="card"><h3>🧾 Pasivo</h3><p>Deudas y obligaciones con proveedores, bancos y otras partes.</p></div>
+<div class="card"><h3>📈 Capital</h3><p>Aportaciones de la persona propietaria y resultados del negocio.</p></div>
 </div>
-
-
-<div class="card">
-
-<h3>🧾 Pasivo</h3>
-
-<p>
-Representa las obligaciones y deudas
-de la tienda.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>📊 Capital</h3>
-
-<p>
-Representa las aportaciones y resultados
-del negocio.
-</p>
-
-</div>
-
-</div>
-
 </section>
 
-
-
-<!-- ================= INTRODUCCIÓN ================= -->
-
-<section id="introduccion" class="page">
-
+<section id="intro" class="page">
 <h2>Introducción</h2>
-
-<br>
-
-<p>
-Un catálogo de cuentas es una relación ordenada y codificada
-de las cuentas utilizadas por una empresa para registrar
-sus operaciones contables.
-</p>
-
-<br>
-
-<p>
-En este proyecto se presenta el catálogo de cuentas de
-<strong>Urban Kicks</strong>, una tienda dedicada a la venta
-de tenis deportivos y casuales.
-</p>
-
-
-<div class="ecuacion">
-
-<span>Activo</span>
-
-=
-
-<span>Pasivo</span>
-
-+
-
-<span>Capital contable</span>
-
-</div>
-
-
+<p>Un catálogo de cuentas es una lista ordenada y codificada de las cuentas que una entidad utiliza para registrar sus operaciones. Ayuda a clasificar la información y facilita la elaboración de reportes contables.</p>
+<div class="equation"><span>Activo</span><b>=</b><span>Pasivo</span><b>+</b><span>Capital contable</span></div>
+<p>En Urban Kicks, los tenis disponibles para vender, el dinero y el mobiliario son recursos (activo). Las compras pendientes de pago y los créditos son obligaciones (pasivo). Las aportaciones y resultados forman parte del capital contable.</p>
 <div class="cards">
-
-<div class="card">
-
-<h3>Activo</h3>
-
-<p>
-Son los bienes y derechos que posee la empresa,
-como efectivo, bancos, inventarios y equipo.
-</p>
-
+<div class="card"><h3>Activo</h3><p>Bienes y derechos de la tienda.</p></div>
+<div class="card"><h3>Pasivo</h3><p>Obligaciones presentes que deben liquidarse.</p></div>
+<div class="card"><h3>Capital contable</h3><p>Valor residual de los activos después de restar los pasivos.</p></div>
 </div>
-
-
-<div class="card">
-
-<h3>Pasivo</h3>
-
-<p>
-Son las obligaciones que la empresa tiene
-con proveedores, bancos y otras personas.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>Capital contable</h3>
-
-<p>
-Representa las aportaciones de los propietarios
-y los resultados obtenidos por el negocio.
-</p>
-
-</div>
-
-</div>
-
 </section>
-
-
-
-<!-- ================= CATÁLOGO ================= -->
 
 <section id="catalogo" class="page">
-
-<h2>
-Catálogo de cuentas
-</h2>
-
-<p>
-Consulta las cuentas de Urban Kicks.
-Puedes utilizar el buscador o seleccionar
-una categoría.
-</p>
-
-
+<h2>Catálogo de cuentas</h2><p class="sub">Selecciona un grupo y abre cada cuenta para ver su clasificación, naturaleza y ejemplo.</p>
 <div class="cards">
-
-<button class="card"
-onclick="seleccionarGrupo('Activo')">
-
-<h3>👟 Activo</h3>
-
-<p>
-12 cuentas
-</p>
-
-</button>
-
-
-<button class="card"
-onclick="seleccionarGrupo('Pasivo')">
-
-<h3>🧾 Pasivo</h3>
-
-<p>
-8 cuentas
-</p>
-
-</button>
-
-
-<button class="card"
-onclick="seleccionarGrupo('Capital')">
-
-<h3>📊 Capital contable</h3>
-
-<p>
-6 cuentas
-</p>
-
-</button>
-
+<button class="card category" type="button" data-group="Activo">👟<strong>Activo</strong><span>12 cuentas</span></button>
+<button class="card category" type="button" data-group="Pasivo">🧾<strong>Pasivo</strong><span>8 cuentas</span></button>
+<button class="card category" type="button" data-group="Capital">📊<strong>Capital contable</strong><span>6 cuentas</span></button>
 </div>
-
-
-<div class="toolbar">
-
-<select id="filtroGrupo">
-
-<option>Todos</option>
-<option>Activo</option>
-<option>Pasivo</option>
-<option>Capital</option>
-
-</select>
-
-
-<input
-type="text"
-id="buscar"
-placeholder="Buscar cuenta..."
->
-
-</div>
-
-
-<div id="listaCuentas" class="cuentas">
-</div>
-
+<div class="toolbar"><select id="group"><option>Todos</option><option>Activo</option><option>Pasivo</option><option>Capital</option></select><input id="search" placeholder="Buscar código, cuenta o clasificación…"></div>
+<div id="accounts" class="list"></div>
 </section>
 
-
-
-<!-- ================= RESUMEN ================= -->
-
-<section id="resumen" class="page">
-
-<h2>
-Tabla resumen
-</h2>
-
-<p>
-Consulta rápidamente las cuentas,
-su clasificación y naturaleza.
-</p>
-
-
-<div class="toolbar">
-
-<input
-id="buscarTabla"
-placeholder="Buscar..."
->
-
-<select id="filtroTabla">
-
-<option>Todos</option>
-<option>Activo</option>
-<option>Pasivo</option>
-<option>Capital</option>
-
-</select>
-
-</div>
-
-
-<div class="tabla-contenedor">
-
-<table>
-
-<thead>
-
-<tr>
-
-<th>Código</th>
-<th>Nombre</th>
-<th>Clasificación</th>
-<th>Naturaleza</th>
-
-</tr>
-
-</thead>
-
-<tbody id="tablaCuentas">
-</tbody>
-
-</table>
-
-</div>
-
+<section id="tabla" class="page">
+<h2>Tabla resumen interactiva</h2><p class="sub">Utiliza el buscador o el filtro para localizar cuentas.</p>
+<div class="toolbar"><input id="searchTable" placeholder="Buscar…"><select id="filterTable"><option>Todos</option><option>Activo</option><option>Pasivo</option><option>Capital</option></select></div>
+<div class="tablewrap"><table><thead><tr><th>Código</th><th>Nombre</th><th>Clasificación</th><th>Naturaleza</th></tr></thead><tbody id="tbody"></tbody></table></div>
 </section>
 
-
-
-<!-- ================= EJEMPLOS ================= -->
-
-<section id="ejemplos" class="page">
-
-<h2>
-Ejemplos prácticos
-</h2>
-
-<p>
-Ejemplos de operaciones realizadas por Urban Kicks.
-</p>
-
-
+<section id="casos" class="page">
+<h2>Ejemplos prácticos</h2><p class="sub">Operaciones ilustrativas de Urban Kicks. Importes en pesos mexicanos.</p>
 <div class="cards">
-
-
-<div class="card ejemplo">
-
-<h3>
-1. Compra de tenis de contado
-</h3>
-
-<p>
-Urban Kicks compra tenis por $8,000
-y paga mediante bancos.
-</p>
-
-<br>
-
-<p>
-<strong>Cargo:</strong>
-Inventarios $8,000
-</p>
-
-<p>
-<strong>Abono:</strong>
-Bancos $8,000
-</p>
-
+<article class="card case"><h3>1. Compra de tenis de contado</h3><p>La tienda compra mercancía por $8,000 y paga desde bancos.</p><p><b>Cargo:</b> Inventarios $8,000</p><p><b>Abono:</b> Bancos $8,000</p></article>
+<article class="card case"><h3>2. Compra de tenis a crédito</h3><p>Se reciben tenis por $12,000 y se acuerda pagar después al proveedor.</p><p><b>Cargo:</b> Inventarios $12,000</p><p><b>Abono:</b> Proveedores $12,000</p></article>
+<article class="card case"><h3>3. Aportación de la persona propietaria</h3><p>La persona propietaria aporta $20,000 en efectivo para iniciar el negocio.</p><p><b>Cargo:</b> Caja $20,000</p><p><b>Abono:</b> Capital aportado $20,000</p></article>
+<article class="card case"><h3>4. Pago parcial a proveedor</h3><p>Urban Kicks paga $3,000 de una deuda pendiente mediante transferencia.</p><p><b>Cargo:</b> Proveedores $3,000</p><p><b>Abono:</b> Bancos $3,000</p></article>
 </div>
-
-
-<div class="card ejemplo">
-
-<h3>
-2. Compra de tenis a crédito
-</h3>
-
-<p>
-La tienda compra tenis por $12,000
-y acuerda pagar posteriormente.
-</p>
-
-<br>
-
-<p>
-<strong>Cargo:</strong>
-Inventarios $12,000
-</p>
-
-<p>
-<strong>Abono:</strong>
-Proveedores $12,000
-</p>
-
-</div>
-
-
-<div class="card ejemplo">
-
-<h3>
-3. Aportación del propietario
-</h3>
-
-<p>
-La propietaria aporta $20,000
-para iniciar operaciones.
-</p>
-
-<br>
-
-<p>
-<strong>Cargo:</strong>
-Caja $20,000
-</p>
-
-<p>
-<strong>Abono:</strong>
-Capital aportado $20,000
-</p>
-
-</div>
-
-
-<div class="card ejemplo">
-
-<h3>
-4. Pago a proveedor
-</h3>
-
-<p>
-Urban Kicks paga $3,000
-de una deuda pendiente.
-</p>
-
-<br>
-
-<p>
-<strong>Cargo:</strong>
-Proveedores $3,000
-</p>
-
-<p>
-<strong>Abono:</strong>
-Bancos $3,000
-</p>
-
-</div>
-
-
-</div>
-
 </section>
 
-
-
-<!-- ================= ACTIVIDAD ================= -->
-
-<section id="actividad" class="page">
-
-<h2>
-Actividad interactiva
-</h2>
-
-<p>
-Selecciona la respuesta correcta.
-</p>
-
-
-<form id="quiz">
-
-
-<div class="pregunta">
-
-<strong>
-1. ¿En qué grupo se encuentra el inventario de tenis?
-</strong>
-
-<label>
-<input type="radio" name="p1" value="correcta">
-Activo circulante
-</label>
-
-<label>
-<input type="radio" name="p1" value="incorrecta">
-Pasivo
-</label>
-
-<label>
-<input type="radio" name="p1" value="incorrecta">
-Capital
-</label>
-
-</div>
-
-
-
-<div class="pregunta">
-
-<strong>
-2. ¿Cuál es la naturaleza de Proveedores?
-</strong>
-
-<label>
-<input type="radio" name="p2" value="incorrecta">
-Deudora
-</label>
-
-<label>
-<input type="radio" name="p2" value="correcta">
-Acreedora
-</label>
-
-<label>
-<input type="radio" name="p2" value="incorrecta">
-No tiene naturaleza
-</label>
-
-</div>
-
-
-
-<div class="pregunta">
-
-<strong>
-3. ¿Dónde se registra la aportación de la propietaria?
-</strong>
-
-<label>
-<input type="radio" name="p3" value="incorrecta">
-Activo
-</label>
-
-<label>
-<input type="radio" name="p3" value="incorrecta">
-Pasivo
-</label>
-
-<label>
-<input type="radio" name="p3" value="correcta">
-Capital contable
-</label>
-
-</div>
-
-
-
-<div class="pregunta">
-
-<strong>
-4. ¿Qué cuenta representa el dinero depositado
-en una cuenta bancaria?
-</strong>
-
-<label>
-<input type="radio" name="p4" value="correcta">
-Bancos
-</label>
-
-<label>
-<input type="radio" name="p4" value="incorrecta">
-Proveedores
-</label>
-
-<label>
-<input type="radio" name="p4" value="incorrecta">
-Clientes
-</label>
-
-</div>
-
-
-
-<button
-type="button"
-class="boton"
-onclick="calificar()">
-
-Calificar actividad
-
-</button>
-
-
-<p id="resultado"></p>
-
-</form>
-
-
-<br><br>
-
-<h3>
-Conclusión
-</h3>
-
-<p>
-El catálogo de cuentas permite organizar las operaciones
-de Urban Kicks y facilita la identificación de los bienes,
-derechos, obligaciones y aportaciones que forman parte
-de la empresa.
-</p>
-
-
-<br>
-
-<h3>
-Mi reflexión
-</h3>
-
-<textarea
-placeholder="Escribe aquí lo que aprendiste..."
-></textarea>
-
+<section id="quiz" class="page">
+<h2>Actividad interactiva</h2><p class="sub">Selecciona una respuesta por pregunta y presiona “Calificar”.</p>
+<form id="formQuiz"><div id="questions"></div><button class="lime" type="submit">Calificar</button> <button type="button" onclick="resetQuiz()">Reiniciar</button><p id="result" class="feedback"></p></form>
+<h3>Conclusión y reflexión</h3>
+<p>Organizar las cuentas permite registrar de forma ordenada las operaciones de Urban Kicks. Conocer la clasificación y naturaleza ayuda a identificar los efectos de las compras, ventas, pagos y aportaciones en la información financiera.</p>
+<label for="reflection"><b>¿Qué aprendiste al elaborar este catálogo?</b></label>
+<textarea id="reflection" class="reflection" placeholder="Escribe aquí tu reflexión…"></textarea>
 </section>
-
-
 </main>
-
-
-<footer>
-
-Urban Kicks © 2026
-<br>
-Catálogo interactivo de cuentas
-<br>
-Cruz Pascual Ashlei Yamileth
-
-</footer>
-
-
+<footer>Urban Kicks · Catálogo interactivo de cuentas · Contabilidad I</footer>
 
 <script>
-
-/* ================= NAVEGACIÓN ================= */
-
-function mostrarPagina(id){
-
-    document.querySelectorAll(".page")
-    .forEach(function(pagina){
-
-        pagina.classList.remove("active");
-
-    });
-
-
-    document.getElementById(id)
-    .classList.add("active");
-
-
-    document.querySelectorAll("nav button")
-    .forEach(function(boton){
-
-        boton.classList.remove("active");
-
-        if(boton.dataset.page === id){
-
-            boton.classList.add("active");
-
-        }
-
-    });
-
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
-
-}
-
-
-document.querySelectorAll("nav button")
-.forEach(function(boton){
-
-    boton.addEventListener("click",function(){
-
-        mostrarPagina(boton.dataset.page);
-
-    });
-
-});
-
-
-
-/* ================= CUENTAS ================= */
-
-const cuentas = [
-
-{
-codigo:"1101",
-nombre:"Caja",
-grupo:"Activo",
-clasificacion:"Activo circulante",
-naturaleza:"Deudora",
-descripcion:"Dinero en efectivo disponible en Urban Kicks.",
-ejemplo:"La tienda conserva $1,500 para operaciones menores."
-},
-
-{
-codigo:"1102",
-nombre:"Bancos",
-grupo:"Activo",
-clasificacion:"Activo circulante",
-naturaleza:"Deudora",
-descripcion:"Dinero depositado en cuentas bancarias.",
-ejemplo:"Urban Kicks tiene $18,000 en su cuenta bancaria."
-},
-
-{
-codigo:"1103",
-nombre:"Clientes",
-grupo:"Activo",
-clasificacion:"Activo circulante",
-naturaleza:"Deudora",
-descripcion:"Personas o empresas que deben dinero por ventas a crédito.",
-ejemplo:"Un equipo deportivo debe $4,000 por tenis."
-},
-
-{
-codigo:"1104",
-nombre:"Documentos por cobrar",
-grupo:"Activo",
-clasificacion:"Activo circulante",
-naturaleza:"Deudora",
-descripcion:"Documentos que respaldan cantidades pendientes de cobro.",
-ejemplo:"Un cliente firma un pagaré por $2,500."
-},
-
-{
-codigo:"1105",
-nombre:"Deudores diversos",
-grupo:"Activo",
-clasificacion:"Activo circulante",
-naturaleza:"Deudora",
-descripcion:"Derechos de cobro diferentes a las ventas habituales.",
-ejemplo:"Se registra un préstamo autorizado de $700."
-},
-
-{
-codigo:"1106",
-nombre:"Inventarios de tenis",
-grupo:"Activo",
-clasificacion:"Activo circulante",
-naturaleza:"Deudora",
-descripcion:"Tenis destinados a la venta.",
-ejemplo:"La tienda tiene mercancía valuada en $35,000."
-},
-
-{
-codigo:"1107",
-nombre:"Anticipo a proveedores",
-grupo:"Activo",
-clasificacion:"Activo circulante",
-naturaleza:"Deudora",
-descripcion:"Pagos realizados antes de recibir mercancías.",
-ejemplo:"Se anticipan $2,000 por un pedido de tenis."
-},
-
-{
-codigo:"1108",
-nombre:"IVA acreditable",
-grupo:"Activo",
-clasificacion:"Activo circulante",
-naturaleza:"Deudora",
-descripcion:"IVA pagado en compras que puede acreditarse conforme corresponda.",
-ejemplo:"Se registra el impuesto de una compra."
-},
-
-{
-codigo:"1201",
-nombre:"Terrenos",
-grupo:"Activo",
-clasificacion:"Activo no circulante",
-naturaleza:"Deudora",
-descripcion:"Terrenos propiedad de Urban Kicks.",
-ejemplo:"La empresa adquiere un terreno para una futura sucursal."
-},
-
-{
-codigo:"1202",
-nombre:"Edificios",
-grupo:"Activo",
-clasificacion:"Activo no circulante",
-naturaleza:"Deudora",
-descripcion:"Construcciones utilizadas por la empresa.",
-ejemplo:"Local comercial propiedad de Urban Kicks."
-},
-
-{
-codigo:"1203",
-nombre:"Mobiliario y equipo",
-grupo:"Activo",
-clasificacion:"Activo no circulante",
-naturaleza:"Deudora",
-descripcion:"Muebles y equipo utilizados en la tienda.",
-ejemplo:"Mostradores, estantes y sillas."
-},
-
-{
-codigo:"1204",
-nombre:"Equipo de cómputo",
-grupo:"Activo",
-clasificacion:"Activo no circulante",
-naturaleza:"Deudora",
-descripcion:"Computadoras y dispositivos utilizados por la empresa.",
-ejemplo:"Computadora para controlar ventas e inventario."
-},
-
-
-{
-codigo:"2101",
-nombre:"Proveedores",
-grupo:"Pasivo",
-clasificacion:"Pasivo a corto plazo",
-naturaleza:"Acreedora",
-descripcion:"Deudas por compras de mercancías a crédito.",
-ejemplo:"Urban Kicks debe $12,000 a un proveedor."
-},
-
-{
-codigo:"2102",
-nombre:"Documentos por pagar",
-grupo:"Pasivo",
-clasificacion:"Pasivo a corto plazo",
-naturaleza:"Acreedora",
-descripcion:"Obligaciones respaldadas mediante documentos.",
-ejemplo:"Se firma un pagaré por mercancía."
-},
-
-{
-codigo:"2103",
-nombre:"Acreedores diversos",
-grupo:"Pasivo",
-clasificacion:"Pasivo a corto plazo",
-naturaleza:"Acreedora",
-descripcion:"Obligaciones diferentes a proveedores.",
-ejemplo:"Queda pendiente el pago de una reparación."
-},
-
-{
-codigo:"2104",
-nombre:"IVA trasladado por pagar",
-grupo:"Pasivo",
-clasificacion:"Pasivo a corto plazo",
-naturaleza:"Acreedora",
-descripcion:"IVA generado en ventas.",
-ejemplo:"Se registra el IVA correspondiente a una venta."
-},
-
-{
-codigo:"2105",
-nombre:"Impuestos por pagar",
-grupo:"Pasivo",
-clasificacion:"Pasivo a corto plazo",
-naturaleza:"Acreedora",
-descripcion:"Impuestos pendientes de pago.",
-ejemplo:"Se reconoce un impuesto que se pagará posteriormente."
-},
-
-{
-codigo:"2106",
-nombre:"Sueldos por pagar",
-grupo:"Pasivo",
-clasificacion:"Pasivo a corto plazo",
-naturaleza:"Acreedora",
-descripcion:"Sueldos devengados que todavía no han sido pagados.",
-ejemplo:"Está pendiente el pago de la nómina."
-},
-
-{
-codigo:"2201",
-nombre:"Préstamo bancario a largo plazo",
-grupo:"Pasivo",
-clasificacion:"Pasivo a largo plazo",
-naturaleza:"Acreedora",
-descripcion:"Financiamiento bancario con vencimiento a largo plazo.",
-ejemplo:"Crédito para ampliar la tienda."
-},
-
-{
-codigo:"2202",
-nombre:"Documentos por pagar a largo plazo",
-grupo:"Pasivo",
-clasificacion:"Pasivo a largo plazo",
-naturaleza:"Acreedora",
-descripcion:"Obligaciones documentadas con vencimiento a largo plazo.",
-ejemplo:"Equipo comprado mediante financiamiento."
-},
-
-
-{
-codigo:"3101",
-nombre:"Capital aportado",
-grupo:"Capital",
-clasificacion:"Capital contribuido",
-naturaleza:"Acreedora",
-descripcion:"Aportaciones realizadas por la propietaria.",
-ejemplo:"La propietaria aporta $20,000."
-},
-
-{
-codigo:"3102",
-nombre:"Aportaciones para futuros aumentos de capital",
-grupo:"Capital",
-clasificacion:"Capital contribuido",
-naturaleza:"Acreedora",
-descripcion:"Aportaciones destinadas a futuros aumentos de capital.",
-ejemplo:"Se recibe una aportación para ampliar el negocio."
-},
-
-{
-codigo:"3201",
-nombre:"Utilidades retenidas",
-grupo:"Capital",
-clasificacion:"Capital ganado",
-naturaleza:"Acreedora",
-descripcion:"Ganancias acumuladas que no han sido distribuidas.",
-ejemplo:"La empresa conserva ganancias para reinvertir."
-},
-
-{
-codigo:"3202",
-nombre:"Pérdidas acumuladas",
-grupo:"Capital",
-clasificacion:"Capital ganado",
-naturaleza:"Deudora",
-descripcion:"Pérdidas de periodos anteriores.",
-ejemplo:"Se arrastra una pérdida de un ejercicio anterior."
-},
-
-{
-codigo:"3203",
-nombre:"Utilidad del ejercicio",
-grupo:"Capital",
-clasificacion:"Capital ganado",
-naturaleza:"Acreedora",
-descripcion:"Resultado positivo obtenido durante el periodo.",
-ejemplo:"Los ingresos superan los costos y gastos."
-},
-
-{
-codigo:"3204",
-nombre:"Pérdida del ejercicio",
-grupo:"Capital",
-clasificacion:"Capital ganado",
-naturaleza:"Deudora",
-descripcion:"Resultado negativo obtenido durante el periodo.",
-ejemplo:"Los costos y gastos superan los ingresos."
-}
-
+const data=[
+["1101","Caja","Activo","Activo circulante","Deudora","Dinero en efectivo disponible en la tienda.","Urban Kicks conserva $1,500 en caja para cambio."],
+["1102","Bancos","Activo","Activo circulante","Deudora","Dinero depositado en cuentas bancarias.","La tienda tiene $18,000 en su cuenta bancaria."],
+["1103","Clientes","Activo","Activo circulante","Deudora","Derechos de cobro por ventas a crédito.","Un equipo deportivo debe $4,000 por tenis adquiridos a crédito."],
+["1104","Documentos por cobrar","Activo","Activo circulante","Deudora","Documentos que respaldan cantidades pendientes de cobro.","Un cliente firma un pagaré por $2,500."],
+["1105","Deudores diversos","Activo","Activo circulante","Deudora","Derechos de cobro distintos de las ventas habituales.","Se registra un préstamo autorizado de $700 a un empleado."],
+["1106","Inventarios de tenis","Activo","Activo circulante","Deudora","Tenis y mercancía destinados a la venta.","Hay pares de tenis deportivos y casuales valuados en $35,000."],
+["1107","Anticipo a proveedores","Activo","Activo circulante","Deudora","Pagos anticipados por mercancía o servicios aún no recibidos.","Se anticipan $2,000 por un pedido de tenis."],
+["1108","IVA acreditable","Activo","Activo circulante","Deudora","IVA pagado en compras que puede acreditarse conforme corresponda.","Se registra el impuesto de una compra con comprobante."],
+["1201","Terrenos","Activo","Activo no circulante","Deudora","Terrenos propiedad de la entidad.","La tienda adquiere un terreno para una futura sucursal."],
+["1202","Edificios","Activo","Activo no circulante","Deudora","Construcciones propiedad de la entidad usadas en sus operaciones.","Local comercial propiedad de Urban Kicks."],
+["1203","Mobiliario y equipo","Activo","Activo no circulante","Deudora","Muebles y equipo para las operaciones del negocio.","Estantes, mostradores y sillas de la tienda."],
+["1204","Equipo de cómputo","Activo","Activo no circulante","Deudora","Computadoras y dispositivos electrónicos usados en el negocio.","Una computadora para controlar ventas e inventario."],
+["2101","Proveedores","Pasivo","Pasivo a corto plazo","Acreedora","Deudas por mercancía o servicios comprados a crédito.","Se deben $12,000 al proveedor de tenis."],
+["2102","Documentos por pagar","Pasivo","Pasivo a corto plazo","Acreedora","Obligaciones respaldadas por documentos con vencimiento próximo.","Se firma un pagaré por mercancía que vence en cuatro meses."],
+["2103","Acreedores diversos","Pasivo","Pasivo a corto plazo","Acreedora","Obligaciones distintas de las compras habituales de mercancía.","Queda pendiente el pago de una reparación del local."],
+["2104","IVA trasladado por pagar","Pasivo","Pasivo a corto plazo","Acreedora","IVA cobrado en ventas que se considera en la determinación fiscal.","Se registra el IVA correspondiente a una venta gravada."],
+["2105","Impuestos por pagar","Pasivo","Pasivo a corto plazo","Acreedora","Contribuciones devengadas pendientes de liquidar.","Se reconoce un impuesto que se pagará posteriormente."],
+["2106","Sueldos por pagar","Pasivo","Pasivo a corto plazo","Acreedora","Remuneraciones devengadas aún no pagadas.","Está pendiente el pago de la nómina semanal."],
+["2201","Préstamo bancario a largo plazo","Pasivo","Pasivo a largo plazo","Acreedora","Financiamiento con vencimiento posterior al corto plazo.","Se obtiene un crédito para ampliar el local, pagadero en varios años."],
+["2202","Documentos por pagar a largo plazo","Pasivo","Pasivo a largo plazo","Acreedora","Obligaciones documentadas cuyo vencimiento es a largo plazo.","Se firma un documento por equipo comprado a crédito."],
+["3101","Capital aportado","Capital","Capital contribuido","Acreedora","Aportaciones de la persona propietaria o socios.","La persona propietaria aporta $20,000 al negocio."],
+["3102","Aportaciones para futuros aumentos de capital","Capital","Capital contribuido","Acreedora","Aportaciones que cumplen las condiciones para reconocerse en este rubro.","Se recibe una aportación formal para un futuro aumento de capital."],
+["3201","Utilidades retenidas","Capital","Capital ganado","Acreedora","Resultados acumulados de ejercicios anteriores no distribuidos.","Se conservan ganancias para reinvertir en nuevos modelos."],
+["3202","Pérdidas acumuladas","Capital","Capital ganado","Deudora","Pérdidas de periodos anteriores pendientes de aplicación.","Se arrastra una pérdida de un ejercicio previo."],
+["3203","Utilidad del ejercicio","Capital","Capital ganado","Acreedora","Resultado positivo generado durante el periodo contable.","Al cierre, los ingresos superan los costos y gastos."],
+["3204","Pérdida del ejercicio","Capital","Capital ganado","Deudora","Resultado negativo generado durante el periodo contable.","Al cierre, los costos y gastos superan los ingresos."]
 ];
 
-
-
-/* MOSTRAR CUENTAS */
-
-function mostrarCuentas(){
-
-    const grupo =
-    document.getElementById("filtroGrupo").value;
-
-    const busqueda =
-    document.getElementById("buscar").value.toLowerCase();
-
-    const contenedor =
-    document.getElementById("listaCuentas");
-
-    contenedor.innerHTML="";
-
-
-    cuentas
-
-    .filter(function(cuenta){
-
-        const coincideGrupo =
-        grupo === "Todos" ||
-        cuenta.grupo === grupo;
-
-        const coincideBusqueda =
-        (
-            cuenta.codigo +
-            cuenta.nombre +
-            cuenta.clasificacion +
-            cuenta.naturaleza
-        )
-        .toLowerCase()
-        .includes(busqueda);
-
-        return coincideGrupo && coincideBusqueda;
-
-    })
-
-    .forEach(function(cuenta){
-
-        const elemento =
-        document.createElement("details");
-
-        elemento.className="cuenta";
-
-        elemento.innerHTML=`
-
-        <summary>
-
-            <span class="codigo">
-              
-<script>
-var n = 0;
-document.getElementById("go").addEventListener("click", function () {
-  n = n + 1;
-  document.getElementById("count").textContent = n;
+function showPage(id){
+ document.querySelectorAll(".page").forEach(x=>x.classList.toggle("active",x.id===id));
+ document.querySelectorAll("nav button").forEach(x=>x.classList.toggle("active",x.dataset.page===id));
+ if(id==="catalogo")renderAccounts();
+ if(id==="tabla")renderTable();
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+document.querySelectorAll("[data-page]").forEach(b=>{
+ b.addEventListener("click",e=>{e.preventDefault();showPage(b.dataset.page);});
 });
+window.showPage=showPage;
 
+function pick(g){
+ const group=document.getElementById("group");
+ group.value=g;
+ showPage("catalogo");
+ renderAccounts();
+}
+document.querySelectorAll("[data-group]").forEach(b=>{b.addEventListener("click",()=>pick(b.dataset.group));});
+window.pick=pick;
+
+function renderAccounts(){
+ let g=document.getElementById("group").value;
+ let q=document.getElementById("search").value.toLowerCase();
+ let root=document.getElementById("accounts");
+ root.innerHTML="";
+ data.filter(a=>(g==="Todos"||a[2]===g)&&a.join(" ").toLowerCase().includes(q)).forEach(a=>{
+  let d=document.createElement("details");
+  d.className="account";
+  d.innerHTML=`<summary><span class="code">${a[0]}</span><span class="accname">${a[1]}</span><span class="tag">${a[2]}</span><span>＋</span></summary>
+  <div class="details"><p><b>Clasificación:</b> ${a[3]}</p><p><b>Naturaleza:</b> ${a[4]}</p><p><b>Descripción:</b> ${a[5]}</p><p><b>Ejemplo:</b> ${a[6]}</p></div>`;
+  root.appendChild(d);
+ });
+ if(!root.children.length)root.textContent="No se encontraron cuentas.";
+}
+document.getElementById("group").addEventListener("change",renderAccounts);
+document.getElementById("search").addEventListener("input",renderAccounts);
+
+function renderTable(){
+ let g=document.getElementById("filterTable").value;
+ let q=document.getElementById("searchTable").value.toLowerCase();
+ let body=document.getElementById("tbody");
+ body.innerHTML="";
+ data.filter(a=>(g==="Todos"||a[2]===g)&&a.join(" ").toLowerCase().includes(q)).forEach(a=>{
+  let tr=document.createElement("tr");
+  [a[0],a[1],a[3],a[4]].forEach(v=>{let td=document.createElement("td");td.textContent=v;tr.appendChild(td)});
+  body.appendChild(tr);
+ });
+}
+document.getElementById("filterTable").addEventListener("change",renderTable);
+document.getElementById("searchTable").addEventListener("input",renderTable);
+
+const qs=[
+["¿En qué grupo se clasifica el inventario de tenis para venta?",["Activo circulante","Pasivo a corto plazo","Capital ganado"],0,"Es mercancía destinada a venderse."],
+["¿Qué naturaleza tiene normalmente la cuenta Proveedores?",["Deudora","Acreedora","No tiene naturaleza"],1,"Representa una obligación de pago."],
+["La aportación inicial de la persona propietaria corresponde a…",["Activo no circulante","Pasivo a largo plazo","Capital contribuido"],2,"Es una aportación de la propiedad."],
+["¿Qué cuenta registra el dinero depositado en el banco?",["Bancos","Clientes","Proveedores"],0,"Bancos representa efectivo depositado."],
+["Un crédito bancario que vence en tres años es…",["Activo circulante","Pasivo a largo plazo","Capital ganado"],1,"Es una obligación con vencimiento de largo plazo."]
+];
+
+function makeQuiz(){
+ let root=document.getElementById("questions");
+ qs.forEach((q,i)=>{
+  let box=document.createElement("div");box.className="question";
+  let b=document.createElement("b");b.textContent=(i+1)+". "+q[0];box.appendChild(b);
+  q[1].forEach((opt,j)=>{
+   let l=document.createElement("label"),r=document.createElement("input");
+   r.type="radio";r.name="q"+i;r.value=j;l.append(r," "+opt);box.appendChild(l);
+  });
+  root.appendChild(box);
+ });
+}
+document.getElementById("formQuiz").addEventListener("submit",e=>{
+ e.preventDefault();let score=0;
+ qs.forEach((q,i)=>{
+  let selected=document.querySelector(`input[name="q${i}"]:checked`);
+  let box=document.querySelectorAll(".question")[i],fb=box.querySelector(".feedback");
+  if(!fb){fb=document.createElement("p");fb.className="feedback";box.appendChild(fb);}
+  if(selected&&Number(selected.value)===q[2]){score++;fb.textContent="¡Correcto! "+q[3];fb.style.color="#27734d";}
+  else{fb.textContent="Respuesta: "+q[1][q[2]]+". "+q[3];fb.style.color="#a34b39";}
+ });
+ document.getElementById("result").textContent=`Resultado: ${score} de ${qs.length} correctas.`;
+});
+function resetQuiz(){
+ document.getElementById("formQuiz").reset();
+ document.querySelectorAll(".question .feedback").forEach(x=>x.remove());
+ document.getElementById("result").textContent="";
+}
+makeQuiz();renderAccounts();renderTable();document.documentElement.classList.add("js-ready");
 </script>
 </body>
 </html>
